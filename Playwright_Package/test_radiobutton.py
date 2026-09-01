@@ -1,0 +1,40 @@
+from unittest import result
+
+from playwright.sync_api import Page
+import time
+class TestRadiobutton:
+    def test_radiobutton(self,page: Page):
+        page.goto("https://selenium.qabible.in/radio-button-demo.php")
+        time.sleep(3)
+        male=page.locator("#inlineRadio1")
+        male.check()
+        page.get_by_role("button",name="Show Selected Value").click()
+        time.sleep(3)
+        message=page.locator("div[id='message-one']")
+        print(message.text_content())
+        time.sleep(3)
+        page.locator("#inlineRadio11").click()
+        time.sleep(3)
+        page.get_by_label("19 t0 44").click()
+        time.sleep(3)
+        page.get_by_role("button",name="Get Results").click()
+        time.sleep(3)
+        message=page.locator("div[id='message-two']")
+        print(message.text_content())
+        time.sleep(3)
+        female=page.locator("#inlineRadio2")
+        female.check()
+        page.get_by_role("button", name="Show Selected Value").click()
+        time.sleep(3)
+        message = page.locator("div[id='message-one']")
+        print(message.text_content())
+        time.sleep(3)
+        page.locator("#inlineRadio21").check()
+        time.sleep(3)
+        page.get_by_label("45 to 60").click()
+        time.sleep(3)
+        page.get_by_role("button", name="Get Results").click()
+        time.sleep(3)
+        message = page.locator("div[id='message-two']")
+        print(message.text_content())
+

@@ -1,0 +1,1 @@
+MAINLINK="https://www.demoblaze.com/"
